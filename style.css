@@ -1,0 +1,116 @@
+/* style.css */
+body {
+    background-color: #fff5f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: #e75480;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+/* The vertical line */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #ffb6c1;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+.moment {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+    opacity: 0; /* Hidden initially */
+    transform: translateY(50px);
+    transition: all 0.6s ease-out;
+}
+
+.moment.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.left { left: 0; }
+.right { left: 50%; }
+
+.content {
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.content img {
+    width: 100%;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+/* Celebration Section */
+.celebration {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #ffe4e1;
+}
+
+.main-photo {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 8px solid white;
+    object-fit: cover;
+    animation: heartBeat 2s infinite;
+}
+
+@media screen and (max-width: 600px) {
+    /* Move the line to the left */
+    .timeline::after {
+        left: 31px;
+    }
+
+    /* Make all cards full width */
+    .moment {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    /* Make sure right-aligned cards align to the left line too */
+    .moment.right {
+        left: 0%;
+    }
+}
+
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
